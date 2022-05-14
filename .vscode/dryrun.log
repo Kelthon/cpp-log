@@ -1,0 +1,15 @@
+make --dry-run --keep-going --print-directory
+make: Entering directory '/home/kelthon/cpp-log'
+ 
+rm ./obj/*
+ 
+rm ./bin/*
+ 
+g++  -Wall -c ./src/log.cpp  -I ./include -o ./obj/log.o 
+ 
+g++ -Wall ./app/main.cpp -I ./include -o ./bin/main.out ./obj/log.o
+ 
+./bin/main.out
+ 
+make: Leaving directory '/home/kelthon/cpp-log'
+ 
