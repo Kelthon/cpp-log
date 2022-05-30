@@ -1,8 +1,8 @@
 #include <iostream>
-#include <cstdlib>
 #include "log.hpp"
+#include "date.hpp"
 
-string date = "00/00/0000 00:00:00";
+string now = Date().datef("");
 
 Logger::Logger(string filename, string path)
 {
@@ -27,14 +27,14 @@ void Logger::setPath(string path)
 void Logger::log(string message)
 {
     logger.open(localStorage, std::ios::app);
-    logger << date + " " + name + ": " + message << std::endl;
+    logger << now + " " + name + ": " + message << std::endl;
     logger.close();
 }
 
 void Logger::error(string message)
 {
     logger.open(localStorage, std::ios::app);
-    logger << date + " " + name + " error: " + message << std::endl;
+    logger << now + " " + name + " error: " + message << std::endl;
     logger.close();
 
 }
@@ -42,7 +42,7 @@ void Logger::error(string message)
 void Logger::success(string message)
 {
     logger.open(localStorage, std::ios::app);
-    logger << date + " " + name + " success: " + message << std::endl;
+    logger << now + " " + name + " success: " + message << std::endl;
     logger.close();
 
 }
@@ -50,7 +50,7 @@ void Logger::success(string message)
 void Logger::info(string message)
 {
     logger.open(localStorage, std::ios::app);
-    logger << date + " " + name + " info: " + message << std::endl;
+    logger << now + " " + name + " info: " + message << std::endl;
     logger.close();
 
 }
@@ -58,7 +58,7 @@ void Logger::info(string message)
 void Logger::warning(string message)
 {
     logger.open(localStorage, std::ios::app);
-    logger << date + " " + name + " warning: " + message << std::endl;
+    logger << now + " " + name + " warning: " + message << std::endl;
     logger.close();
 
 }
